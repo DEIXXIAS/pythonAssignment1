@@ -2,7 +2,7 @@
 from operator import index
 
 
-def deleteFirstRecord (table):
+def deleteFirstRecord(table):
     print("\n\n")
     print("Are you sure you want to delete the first record? (y/n)")
     option = input("\nEnter your option: ")
@@ -11,7 +11,7 @@ def deleteFirstRecord (table):
         print("Please enter a valid option (y/n)")
         option = input("\nEnter your option: ")
         if option == 'y' or option == 'Y':
-            del table[0:5] # will not delete the first record
+            remove(table[0]) #needs to be fixed
             print("\n\n")
             print("The first record was deleted successfully!")
             return
@@ -21,6 +21,18 @@ def deleteFirstRecord (table):
             return
 
 
+def sumsNumericalField(table): #needs to be fix
+    totalItemsInStock = 0
+    for index in range(len(table)):
+        (stockID, price, stockDescr, itemsOnStock, itemsOrdered) = table[index]
+        while index < len(table):
+            totalItemsInStock =  + totalItemsInStock
+            index += 1
+
+    print("\n\n")
+    print("The total price is: ", totalItemsInStock)
+    print("\n\n")
+
 
 def displayRecordsOnScreen (table):
        for index in range(len(table)):
@@ -28,6 +40,14 @@ def displayRecordsOnScreen (table):
         print("%-8s%-8.2f%-32s%-4d%-2d" % (stockID, float(price), stockDescr, int(itemsOnStock), int(itemsOrdered) ) )
               
 
+
+def accendingSort(table): # need to be fixed
+    for index in range(len(table)):
+        (stockID, price, stockDescr, itemsOnStock, itemsOrdered) = table[index()]
+    listSorted = table.sort(stockDescr)
+    print("\n\n")
+    print("The sorted Stock is: ", listSorted)
+    print("\n\n")
 
 
 
@@ -58,6 +78,8 @@ while option != 'Q' or option != 'q':
     print("\n\n")
     print("========MENU========")
     print("1. Delete the first record")
+    print("2. Total items in stock")
+    print("3. Accending sort for stock")
     print("8. Display the records on the screen")
     print("Q. Quit")
 
@@ -66,6 +88,10 @@ while option != 'Q' or option != 'q':
 
     if option == '1':
         deleteFirstRecord(table)
+    elif option == '2':
+        sumsNumericalField(table)
+    elif option == '3':
+        accendingSort(table)
     elif option == '8':
         displayRecordsOnScreen(table)
 
