@@ -1,6 +1,4 @@
 # ------------------------------------------------- main functions ------------------------------------------------------------
-from operator import index
-
 
 def deleteFirstRecord(table):
     print("\n\n")
@@ -11,7 +9,7 @@ def deleteFirstRecord(table):
         print("Please enter a valid option (y/n)")
         option = input("\nEnter your option: ")
         if option == 'y' or option == 'Y':
-            remove(table[0]) #needs to be fixed
+            del table[0]
             print("\n\n")
             print("The first record was deleted successfully!")
             return
@@ -21,13 +19,10 @@ def deleteFirstRecord(table):
             return
 
 
-def sumsNumericalField(table): #needs to be fix
+def sumsNumericalField(table):
     totalItemsInStock = 0
-    for index in range(len(table)):
-        (stockID, price, stockDescr, itemsOnStock, itemsOrdered) = table[index]
-        while index < len(table):
-            totalItemsInStock =  + totalItemsInStock
-            index += 1
+    for record in table:
+        totalItemsInStock += int(record[3])
 
     print("\n\n")
     print("The total price is: ", totalItemsInStock)
@@ -42,9 +37,8 @@ def displayRecordsOnScreen (table):
 
 
 def accendingSort(table): # need to be fixed
-    for index in range(len(table)):
-        (stockID, price, stockDescr, itemsOnStock, itemsOrdered) = table[index()]
-    listSorted = table.sort(stockDescr)
+    for stockDescr in table:
+        listSorted = table.sort(stockDescr)
     print("\n\n")
     print("The sorted Stock is: ", listSorted)
     print("\n\n")
