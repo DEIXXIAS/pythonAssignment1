@@ -9,7 +9,7 @@ def deleteFirstRecord(table):
         print("Please enter a valid option (y/n)")
         option = input("\nEnter your option: ")
         if option == 'y' or option == 'Y':
-            del table[0]
+            del table[0] 
             print("\n\n")
             print("The first record was deleted successfully!")
             return
@@ -20,9 +20,8 @@ def deleteFirstRecord(table):
 
 
 def sumsNumericalField(table):
-    totalItemsInStock = 0
     for record in table:
-        totalItemsInStock += int(record[3])
+        totalItemsInStock += int(record[3]) 
 
     print("\n\n")
     print("The total price is: ", totalItemsInStock)
