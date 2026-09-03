@@ -20,6 +20,7 @@ def deleteFirstRecord(table):
 
 
 def sumsNumericalField(table):
+    totalItemsInStock = 0
     for record in table:
         totalItemsInStock += int(record[3]) 
 
